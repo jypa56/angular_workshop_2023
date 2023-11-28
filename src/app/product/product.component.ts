@@ -86,7 +86,7 @@ export class ProductComponent {
     if(this.buyForm.get('quantity')?.valid){
       this.productList.emit ({
         ...product,
-        quantity: 1
+        quantity: this.buyForm.get('quantity')?.value
       });
       console.log("productList: ",this.productList);
       alert('Add to cart already!');
