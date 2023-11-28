@@ -1,0 +1,57 @@
+
+<div class="full-container" *ngIf="show">
+    <div class="search row">
+        <form [formGroup]="searchForm" (ngSubmit)="searchProducts()"
+            class="text-center">
+            <div class="col col-7 search-input">
+                <input class="custom-input" type="text" formControlName="search"
+                    placeholder="Type your search term...">
+            </div>
+            <div class="col">
+                <button type="submit" class="buy-btn">Search</button>
+            </div>
+        </form>
+    </div>
+    <!-- <app-product-detail [product]="selected" *ngIf="selected"></app-product-detail> -->
+    <div class="row">
+        <div class="col justify-content-center">
+            <div class="card" *ngFor="let product of products">
+                <div class="image-container" (click)="productDetail(product)">
+                    <img class="thumbnail" width="200em" height="200em"
+                        [src]="product.thumbnail" alt="product image">
+                </div>
+                <div class="card-body" (click)="productDetail(product)">
+                    <h4 class="description">{{ product.title }}</h4>
+                    <p>{{ product.description.length > 70 ?
+                        product.description.slice(0, 70) + '...' :
+                        product.description }}</p>
+
+                </div>
+                <div class="card-footer justify-content-center">
+                    <div class="quantity">
+                        <form [formGroup]="buyForm">
+                            <span>Quantity </span>
+                            <input class="number-input" type="number" name="quantity" min="0"
+                                max="product.stock"
+                                step="1" placeholder="0"
+                                formControlName="quantity">
+                        </form>
+                    </div>
+                    <div (click)="productDetail(product)">
+                        <p class="price">{{calculateAmount(product)| currency:"USD"
+                            }}</p>
+                        <p><span class="price discount">{{ product.price |
+                                currency:"USD"
+                                }} </span><span class="discount-percent">-{{
+                                product.discountPercentage }}%</span></p>
+                    </div>
+                    <button class="add-to-cart-btn" (click)="addToCart(product)">Add
+                        to Cart <i
+                            class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

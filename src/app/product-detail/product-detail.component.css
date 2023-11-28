@@ -1,0 +1,176 @@
+.modal {
+    font-family: Arial, sans-serif;
+    justify-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    margin: 2%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.thumbnail{
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.price {
+    margin-bottom: 20px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+.new-price {
+    color: red;
+}
+
+.sizes {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.description{
+    text-align: left;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card-footer{
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.add-to-cart-btn {
+    border: 2px solid #00998b;
+    background-color: #fff;
+    color: #00998b;
+}
+
+.add-to-cart-btn:hover {
+    border: 2px solid #4caf50;
+    background-color: #fff;
+    color: #4caf50;
+}
+
+.buy-btn {
+    border: 2px solid #00998b;
+    background-color: #00998b;
+    margin-left: 2%;
+    color: #fff;
+}
+
+.buy-btn:hover {
+    border: 2px solid #4caf50;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.modal-header{
+    background-color: #352E4B;
+    color: #fff;
+}
+
+
+.fa-solid{
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.fa-cart-shopping{
+    color: #00998b;
+}
+
+.quantity{
+    margin-top: 10%;
+}
+
+button{
+    margin-top: 10%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #352E4B;
+    color: #fff;
+   }
+   
+   .hive-logo img {
+    height: 40px;
+   }
+   
+   nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+   }
+   
+   nav ul li a {
+    display: block;
+    padding: 0 10px;
+    text-decoration: none;
+    color: #fff;
+   }
+   
+   nav ul li a :hover {
+    color: #00998b;
+   }
+   
+   .try-hive a {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #00b8a9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+   }
+   
+   .try-hive a :hover {
+    background-color: #00998b;
+   }
+
+   button{
+    border: none;
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #EB8F38;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}

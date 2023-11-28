@@ -1,0 +1,24 @@
+
+<header>
+    <div class="hive-logo">
+        <h1>GG SHOP</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">PRODUCT</a></li>
+            <li><a href="#">PRICING</a></li>
+            <li><a href="#">USE CASES</a></li>
+            <li><a href="#">CUSTOMERS</a></li>
+            <li><a href="#">RESOURCES</a></li>
+        </ul>
+    </nav>
+    <div class="try-hive">
+        <span id="group">
+            <button (click)="cart()"><i class="fa-solid fa-cart-shopping"></i> CART</button>
+            <span class="badge badge-light">{{productData.length}}</span>
+        </span>
+    </div>
+</header>
+<app-cart [productList]="productData" [show]="showCart" (showChange)="closeCart()"></app-cart>
+<app-product (productList)="addToCart($event)" [show]="showProducts"></app-product>
+

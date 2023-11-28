@@ -1,0 +1,62 @@
+<body *ngIf="show">
+    <header>
+        <div class="hive-logo">
+            <h4>SHOPPING CART</h4>
+        </div>
+        <span class="group">
+            <button class="try-hive" (click)="back()"> back</button>
+        </span>
+    </header>
+    <div class="container">
+        <div class="row product-list product">
+            <div class="col image-container">
+                <h4></h4>
+            </div>
+            <div class="col name">
+                <h6>Product Name</h6>
+            </div>
+            <div class="col price-unit">
+                <h6>Price</h6>
+            </div>
+            <div class="col quantity">
+                <h6>Quantity</h6>
+            </div>
+            <div class="col amount">
+                <h6>Amount</h6>
+            </div>
+        </div>
+        <div class="row product-list product"
+            *ngFor="let product of productList">
+            <div class="row">
+                <div class="col image-container">
+                    <img class="thumbnail" width="50px" height="50px"
+                        [src]="product.thumbnail" alt="product image">
+                </div>
+                <div class="col name">
+                    <p><b>{{product.title}}</b> {{product.description}}</p>
+                </div>
+                <div class="col price-unit">
+                    <p class="price"><span class="old-price">{{calculateDiscount(product)|
+                            currency:"USD"
+                            }}</span><span class="new-price">{{ product.price |
+                            currency:"USD"
+                            }} </span></p>
+
+                </div>
+                <div class="col quantity">
+                    <p>{{product.quantity}}</p>
+                </div>
+                <div class="col amount">
+                    <p class="price">{{calculateAmount(product)| currency:"USD"}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-list product">
+            <h2><b>GG SHOP</b></h2>
+            <div id="cart-items"></div>
+            <div class="total" id="cart-total">Total: {{calculateTotalAmount()|
+                currency:"USD"}}</div>
+        </div>
+    </div>
+</body>
