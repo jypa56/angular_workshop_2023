@@ -18,9 +18,6 @@ export class HeaderComponent {
 
   ngOnInit() {
     this.productData= []
-    // this.dataService.productData$.subscribe((data: any) => {
-    //   this.productData = data;
-    // });
   }
   addToCart(product:any){  
     let duplicate = false;
@@ -34,12 +31,6 @@ export class HeaderComponent {
       this.productData.push(product);
     }
   }
-
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if (changes['cartList']) {
-  //     this.productData.push(this.cartList);
-  //   }
-  // }
 
   cart(){
     this.showCart = true;

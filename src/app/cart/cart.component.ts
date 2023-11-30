@@ -21,18 +21,6 @@ export class CartComponent {
     private modalService: ModalService
     ) {}
     
-  // async ngOnInit() {
-  //   await this.getData();
-  // }
-
-  // async getData() {
-  //   console.log(this.productList);
-  //   this.dataService.getData().subscribe(async (response) => {
-  //     this.data = response.products
-  //     this.productList = response.products
-  //       console.log('data:',response);
-  //     });
-  // }
   
     ngOnChanges(changes: SimpleChanges) {
     if (changes['productList']) {

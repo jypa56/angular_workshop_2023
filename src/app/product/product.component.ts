@@ -48,19 +48,11 @@ export class ProductComponent {
           ...product,
           quantity:0
         }
-        console.log('product',product);
-        
         this.data?.push(product);
       });
       this.products = this.data
-      console.log('this.products',this.products);
-      
-      });
 
-      // this.dataService.getMockUpData().subscribe(async (response) => {
-      //   this.data = response.products
-      //   this.products = this.data
-      //   });
+      });
   }
 
   calculateAmount(procuct:any){

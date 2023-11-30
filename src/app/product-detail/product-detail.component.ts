@@ -40,11 +40,7 @@ export class ProductDetailComponent {
   }
 
   calculateAmount(procuct:any){
-    return procuct.price - (procuct.price * (procuct.discountPercentage / 100));
-  }
-
-  closeModal(){
-    this.modalService.closeModal();
+    return procuct?.price - (procuct?.price * (procuct?.discountPercentage / 100));
   }
 
   addToCart(){
@@ -53,9 +49,7 @@ export class ProductDetailComponent {
         product: this.product,
         quantity: this.buyForm.get('quantity')?.value
       }
-      console.log("productList: ",productList);
       this.dataService.setProductList(productList);
-      console.log("productList: ",productList);
     }
   }
 
@@ -65,7 +59,6 @@ export class ProductDetailComponent {
         product: this.product,
         quantity: this.buyForm.get('quantity')?.value
       }
-      console.log("productList: ",productList);
     }
   }
 
