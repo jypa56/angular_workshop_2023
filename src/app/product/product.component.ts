@@ -14,13 +14,14 @@ export class ProductComponent {
   @Input() show!:boolean
   @Output() productList: EventEmitter<any> = new EventEmitter<any>();
   products!:any[]
-  data!:any[]
+  data:any[]=[]
   searchQuery!:any
   searchForm: FormGroup;
   buyForm: FormGroup;
   productId: any;
   showDetail: boolean = false;
   selected: any;
+  quantity!:any
   constructor(
     private dataService: DataService,
     private router: Router,
@@ -41,8 +42,19 @@ export class ProductComponent {
 
   async getData() {
     this.dataService.getData().subscribe(async (response) => {
-      this.data = response.products
-      this.products = response.products
+  
+      response.products.forEach((product: any) => {
+        product = {
+          ...product,
+          quantity:0
+        }
+        console.log('product',product);
+        
+        this.data?.push(product);
+      });
+      this.products = this.data
+      console.log('this.products',this.products);
+      
       });
 
       // this.dataService.getMockUpData().subscribe(async (response) => {
@@ -77,17 +89,13 @@ export class ProductComponent {
   productDetail(product:any){
     this.showDetail = true;
     this.selected = product
-    // this.modalService.openModal(product);
     console.log("/product-detail/"+product.id);
     this.router.navigate(['/product-detail', product.id]);
   }
 
   addToCart(product:any){
-    if(this.buyForm.get('quantity')?.valid){
-      this.productList.emit ({
-        ...product,
-        quantity: this.buyForm.get('quantity')?.value
-      });
+    if(product.quantity>0&&product.quantity<=product.stock){
+      this.productList.emit (product);
       console.log("productList: ",this.productList);
       alert('Add to cart already!');
     }else{

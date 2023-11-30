@@ -7,13 +7,23 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class DataService {
   private apiUrl = 'https://dummyjson.com/products';
-  private productDataSubject = new BehaviorSubject<any>([]); // You can change the data type based on your needs
+  private productDataSubject = new BehaviorSubject<any>([]); 
   productData$ = this.productDataSubject.asObservable();
   constructor(private http: HttpClient) { }
 
   getMockUpData(): Observable<any> {
     return this.http.get<any>('./assets/data.json');
   }
+
+  // getMockUpDataById(id:any): Observable<any> {
+  //   let data = this.getMockUpData();
+  //   data.forEach((element: any) => {
+  //     if(id==element.id){
+  //       return element;
+  //     }
+  //   });
+  //   return this.http.get<any>('./assets/data.json');
+  // }
 
   getData(): Observable<any> {
     return this.http.get(this.apiUrl);

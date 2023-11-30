@@ -15,7 +15,7 @@
     <!-- <app-product-detail [product]="selected" *ngIf="selected"></app-product-detail> -->
     <div class="row">
         <div class="col justify-content-center">
-            <div class="card" *ngFor="let product of products">
+            <div class="card" *ngFor="let product of products, let i = index" >
                 <div class="image-container" (click)="productDetail(product)">
                     <img class="thumbnail" width="200em" height="200em"
                         [src]="product.thumbnail" alt="product image">
@@ -34,7 +34,8 @@
                             <input class="number-input" type="number" name="quantity" min="0"
                                 max="product.stock"
                                 step="1" placeholder="0"
-                                formControlName="quantity">
+                                formControlName="quantity"
+                                [(ngModel)]="product.quantity">
                         </form>
                     </div>
                     <div (click)="productDetail(product)">
